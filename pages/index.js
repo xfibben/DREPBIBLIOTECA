@@ -20,13 +20,14 @@ export default function Home({books}) {
 
           <NavbarUser></NavbarUser>
             <Slider/>
-            <div className={'w-full grid lg:flex mt-5'}>
+            <div className={' grid lg:flex mt-5'}>
                 <Sidebar></Sidebar>
-                <div className={'bg-gray-100 rounded-2xl w-full lg:w-3/4  grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap4  mr-1 md:mr-10 shadow-2xl'}>
+                <div className={' rounded-2xl w-full lg:w-3/4  grid grid-cols-2 gap-2 lg:grid-cols-5 lg:gap-5  mr-1 md:mr-10 shadow-2xl'}>
                     {books.map(book=>(
-                        <div className={'my-4 mx-3 h-auto rounded-2xl bg-gray-500'} key={book._id} onClick={()=>router.push(`/libros/${book._id}`)}>
-                            <h1 className={'text-xl grid content-center text-center h-20 flex justify-center'}>{book.title}</h1>
-                            <img className='w-full h-40 mt-2' src={book.image}></img>
+                        <div className={'my-4 mx-3 h-72 w-40 lg:w-60 rounded-2xl  px-2 shadow-2xl'} key={book._id} onClick={()=>router.push(`/libros/${book._id}`)}>
+                            <img className='w-full  h-40 mt-2' src={book.image}></img>
+                            <h1 className={'text-xl grid content-center text-end h-20 flex justify-center'}>{book.title}</h1>
+
                         </div>
                     ))}
 
