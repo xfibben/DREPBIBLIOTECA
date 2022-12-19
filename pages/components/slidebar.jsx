@@ -2,7 +2,7 @@
 export default function Slider(){
 
     return(
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div className={'lg:mx-5 lg:mt-5'} id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol className="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -10,7 +10,7 @@ export default function Slider(){
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img className="d-block w-100" src="..." alt="First slide"/>
+                    <img className="d-block w-100 h-60 rounded-2xl" src="https://4.bp.blogspot.com/-P_6q5UdBbyU/Xov6IkoE0LI/AAAAAAAAOq0/N1exZC7oWYkxtFx7Ijj_3MtkLPmEk3ITQCK4BGAYYCw/s1600/BIBLIOTECA%2BVIRTUAL.png" alt="First slide"/>
                 </div>
                 <div class="carousel-item">
                     <img className="d-block w-100" src="..." alt="Second slide"/>
