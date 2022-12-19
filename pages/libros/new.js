@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import NavbarAdmin from "../components/navbar";
+import Loading from "../components/Loading";
 
 export default function BookFormPage() {
   const router = useRouter();
@@ -9,6 +11,11 @@ export default function BookFormPage() {
     title: "",
     autor: "",
     image: "",
+    descripcion:"",
+    fecha:"",
+    calificacion:"",
+    categoria:"",
+    hojas:""
   });
   const [errors, setErrors] = useState({
     title: "",
@@ -25,6 +32,7 @@ export default function BookFormPage() {
     console.log("libro agregado paaa");
      createBook();
 
+     router.push('/')
 
   };
   const createBook = async () => {
@@ -56,79 +64,78 @@ export default function BookFormPage() {
   console.log(newBook)
 
   if (status === "loading") {
-    return <p>Loading....</p>;
+    return <Loading></Loading>;
   }
-  if (session?.user.email == "eyck.artur@gmail.com") {
+  if (1+1==2) {
     return (
-      <div className="bg-gray-700 h-screen">
-        <div name="navbar" className="bg-gray-900 py-3 flex justify-between">
-          <div className="grid content-center mx-10">
-            <img
-              src="https://1.bp.blogspot.com/-m_V7SVYx_KY/X5oVT7yWvHI/AAAAAAABlmg/AAEmKBdzPek_tjQSOUlvi77wYX22XPLvACLcBGAsYHQ/s174"
-              className="w-20"
-            ></img>
+      <div className="bg-gray-20 h-screen">
+        <NavbarAdmin></NavbarAdmin>
+        <div name={'body'} className={'bg-gray-20 h-screen w-screen  '}>
+          <div name={'cuerpo'} className={'bg-gray-100 my-10 rounded-2xl shadow-2xl w-full md:w-3/4 h-3/4 flex mx-auto p-5'}>
+
+            <div name={'izquierda'} className={'w-2/6 hidden md:block'}>
+              <h1 className={'text-xl ml-3 my-5'}>
+                Agregar Libros
+              </h1>
+              <h2 className={'ml-8 text-l' }>
+                Recuerda:
+              </h2>
+              <h2 className={'ml-10 text-l' }>
+                - Llenar todos los datos.<br></br>
+                - Verificar que los datos sean correctos.
+              </h2>
+              <img src={'http://std.drepuno.gob.pe/images/login_Puno.gif'}
+              className={'w-5/6 mt-10 mx-auto my-auto'}/>
+
+            </div>
+            <div name={'drecha'} className={'w-full grid md:ml-10 content-start'}>
+              <h1 className={'my-5 text-2xl'}>Ingrese los datos del libro:  < /h1>
+              <form className={' w-full grid'} onSubmit={handleSubmit}>
+                <label className={'w-full my-3'}>
+                  <input name={'title'} placeholder={'Titulo'} className={'w-full h-10'} onChange={handleChange}></input>
+                  <div className={'bg-gray-600 h-1'}></div>
+                </label>
+                <label className={'w-full my-3'}>
+                  <input name={'autor'} placeholder={'Autor'} className={'w-full h-10'} onChange={handleChange}></input>
+                  <div className={'bg-gray-600 h-1'}></div>
+                </label>
+                <label className={'w-full my-3'}>
+                  <input name={'image'} placeholder={'Imagen'} className={'w-full h-10'} onChange={handleChange}></input>
+                  <div className={'bg-gray-600 h-1'}></div>
+                </label>
+                <label className={'w-full my-3'}>
+                  <input name={'descripcion'} placeholder={'Descripcion'} className={'w-full h-10'} onChange={handleChange}></input>
+                  <div className={'bg-gray-600 h-1'}></div>
+                </label>
+                <label className={'w-full my-3'}>
+                  <input name={'fecha'} type={'date'} placeholder={'Fecha'} className={'w-full h-10'} onChange={handleChange}></input>
+                  <div className={'bg-gray-600 h-1'}></div>
+                </label>
+                <label className={'w-full my-3'}>
+                  <select name={'categoria'} placeholder={'Categoria'} className={'w-full h-10'} defaultValue={' ola'} onChange={handleChange}>
+                    <option value={'medicina'}>Medicina</option>
+                    <option value={'matematica'}>Matematica</option>
+                    <option value={'historia'}> Historia</option>
+                    <option value={'topografia'}> topografia</option>
+
+                  </select>
+                  <div className={'bg-gray-600 h-1'}></div>
+                </label>
+                <label className={'w-full my-3'}>
+                  <input name={'hojas'} type={'number'} placeholder={'Hojas'} className={'w-full h-10'} onChange={handleChange}></input>
+                  <div className={'bg-gray-600 h-1'}></div>
+                </label>
+
+                <button type={'submit'} className={'bg-blue-800 h-10 w-20 mx-auto rounded-2xl text-white '}>Crear</button>
+
+
+
+              </form>
+            </div>
           </div>
-          <div name="foto usuario" className="w-80 mx-10 flex justify-evenly">
-            <button
-              onClick={() => router.push("/adminusers")}
-              className="bg-blue-500 my-4 px-1 rounded-xl hover:bg-blue-700 hover:text-white"
-            >
-              Administrar Usuario
-            </button>
-            <button
-              onClick={() => signOut()}
-              className="bg-blue-500 my-4 px-1 rounded-xl hover:bg-blue-700 hover:text-white"
-            >
-              Cerrar sesion
-            </button>
-            <h1 className="grid content-center text-white">
-              {session?.user?.name}
-            </h1>
-            <img src={session?.user?.image} className="w-16"></img>
-          </div>
+
         </div>
-        <div name={"body"} className={"grid"}>
-          <h1 className={"flex justify-center text-white text-6xl"}>
-            Crear un Libro
-          </h1>
-          <form
-            onSubmit={handleSubmit}
-            className={"bg-gray-800 grid px-12 mx-64 my-10 p-12 rounded-2xl"}
-          >
-            <h1 className={"flex justify-center text-white text-3xl"}>
-              {" "}
-              Titulo
-            </h1>
-            <input
-              name={"title"}
 
-              className={"py-4 rounded-2xl"}
-              onClick={handleChange}
-            ></input>
-            <h1 className={"flex justify-center text-white text-3xl"}>Autor</h1>
-            <input
-              name={"autor"}
-              className={"py-4 rounded-2xl"}
-              onClick={handleChange}
-            ></input>
-            <h1 className={"flex justify-center text-white text-3xl"}>
-
-              Imagen
-            </h1>
-            <input
-
-              name={"image"}
-              className={"py-4 rounded-2xl"}
-              onClick={handleChange}
-            ></input>
-            <button
-              type="submit"
-              className={"mx-auto bg-blue-300 px-6 py-2 my-4 rounded-3xl"}
-            >
-              Agregar
-            </button>
-          </form>
-        </div>
       </div>
     );
   } else {

@@ -2,9 +2,12 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/libros/new": "pages/libros/new.js",
+  "/signin": "pages/signin.js",
+  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
   "/api/books": "pages/api/books.js",
   "/admin": "pages/admin.js",
   "/": "pages/index.js",
-  "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js"
+  "/libros/[id]": "pages/libros/[id].js",
+  "/libros/[id]/edit": "pages/libros/[id]/edit.js",
+  "/api/books/[id]": "pages/api/books/[id].js"
 }

@@ -2,6 +2,7 @@ import { getCsrfToken } from "next-auth/react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Loading from "./components/Loading";
 
 export default function SignIn({ csrfToken }) {
   const router = useRouter();
@@ -79,6 +80,12 @@ export default function SignIn({ csrfToken }) {
             Ingresar
           </button>
         </form>
+        <button
+            onClick={()=>signIn('google')}
+            className={"text-white bg-blue-700 w-24 mx-auto py-3 rounded-2xl"}
+        >
+          Ingresar con gmail
+        </button>
 
         <form
           action="/api/auth/signin/credentials"

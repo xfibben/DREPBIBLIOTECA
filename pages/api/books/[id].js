@@ -10,6 +10,7 @@ export default async (req, res) => {
     case "GET":
       try {
         const book = await Books.findById(id);
+
         if (!book) {
           return res.status(404).json({ message: "libro no encontrado" });
         }

@@ -35,10 +35,20 @@
       "static/chunks/main.js",
       "static/chunks/pages/admin.js"
     ],
-    "/libros/new": [
+    "/libros/[id]": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/libros/new.js"
+      "static/chunks/pages/libros/[id].js"
+    ],
+    "/libros/[id]/edit": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/libros/[id]/edit.js"
+    ],
+    "/signin": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/signin.js"
     ]
   },
   "ampFirstPages": []
