@@ -1,4 +1,4 @@
-SISTEMA DE BIBLIOTCA CON LOGIN UTILIZANDO COREO ELECTRONICO
+SISTEMA DE BIBLIOTCA CON LOGIN (servicio GOOGLE) UTILIZANDO COREO ELECTRONICO
 
 GUIA INSTALACION: 
 - tener instalado mongodb, en puerto 27017 (la base de datos se creara automaticamente al iniciar el proyecto.)
