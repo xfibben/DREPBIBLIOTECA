@@ -6,6 +6,7 @@ import Sidebar from "./components/sidebar";
 import Slider from "./components/slidebar";
 
 
+
 export default function Home({books}) {
   const router = useRouter();
   const { data: session, status } = useSession();

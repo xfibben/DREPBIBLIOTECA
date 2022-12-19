@@ -10,10 +10,10 @@ export default function Slider(){
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img className="d-block w-100 h-60 rounded-2xl" src="" alt="1"/>
+                    <img className="d-block w-100  rounded-2xl" src="https://github.com/xfibben/DREPBIBLIOTECA/blob/main/public/GIT%20banner.jpg?raw=true" alt="1"/>
                 </div>
                 <div class="carousel-item">
-                    <img className="d-block w-100" src="/public/favicon.ico" alt="Second slide"/>
+                    <img className="d-block w-100" src="https://github.com/xfibben/DREPBIBLIOTECA/blob/main/public/tode_2.png" alt="Second slide"/>
                 </div>
 
             </div>
