@@ -10,16 +10,14 @@ export default function Slider(){
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img className="d-block w-100 h-60 rounded-2xl" src="https://4.bp.blogspot.com/-P_6q5UdBbyU/Xov6IkoE0LI/AAAAAAAAOq0/N1exZC7oWYkxtFx7Ijj_3MtkLPmEk3ITQCK4BGAYYCw/s1600/BIBLIOTECA%2BVIRTUAL.png" alt="First slide"/>
+                    <img className="d-block w-100 h-60 rounded-2xl" src="" alt="1"/>
                 </div>
                 <div class="carousel-item">
-                    <img className="d-block w-100" src="..." alt="Second slide"/>
+                    <img className="d-block w-100" src="/public/favicon.ico" alt="Second slide"/>
                 </div>
-                <div class="carousel-item">
-                    <img className="d-block w-100" src="..." alt="Third slide"/>
-                </div>
+
             </div>
-            <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <a className="carousel-control-prev"  role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
             </a>
