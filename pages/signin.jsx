@@ -12,16 +12,15 @@ export default function SignIn({ csrfToken }) {
   const [message, setMessage] = useState("");
   const signInUser = async (e) => {
     e.preventDefault();
-    let options = { redirect: false,email, password };
+    let options = { redirect: false, email, password };
     console.log(options);
     const res = await signIn("credentials", options);
     setMessage(null);
     if (res?.error) {
       setMessage(res.error);
     }
-    console.log(res)
-    router.push('/');
-
+    console.log(res);
+    router.push("/");
   };
   const signupUser = async (e) => {
     e.preventDefault();
@@ -58,77 +57,16 @@ export default function SignIn({ csrfToken }) {
         ></img>
       </div>
 
-      <div className="flex justify-evenly bg-gray-600 my-3 p-10 rounded-2xl shadow-2xl h-96 w-screen">
-        <form
-          className=" h-full  grid content-evenly"
-          name="email"
-          method="post"
-          action="/api/auth/signin/email"
-        >
-          <h1 className={" text-5xl w=full flex justify-center text-white"}>
-            Ingresar
-          </h1>
-          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
-          <label className="flex justify-end">
-            <h2 className="text-2xl text-white">Correo Electronico: </h2>
-            <input type="email" id="email" name="email" />
-          </label>
-          <button
-            type="submit"
-            className={"text-white bg-blue-700 w-24 mx-auto py-3 rounded-2xl"}
-          >
-            Ingresar
-          </button>
-        </form>
+      <div className="flex  bg-gray-200 w-96  my-3  rounded-2xl shadow-2xl  ">
         <button
-            onClick={()=>signIn('google')}
-            className={"text-white bg-blue-700 w-24 mx-auto py-3 rounded-2xl"}
+          onClick={() => signIn("google")}
+          className={
+            "text-white bg-blue-700  text-4xl mx-auto py-3 rounded-2xl flex"
+          }
         >
-          Ingresar con gmail
+          <h1 className={'w-1/2 grid h-full content-center'}>Ingresar con Gmail</h1>
+          <img className={'w-14 mx-auto my-auto '} src="https://mailmeteor.com/logos/assets/PNG/Gmail_Logo_512px.png"/>
         </button>
-
-        <form
-          action="/api/auth/signin/credentials"
-          name="datos"
-          className="h-full  grid content-evenly"
-        >
-          <h1 className={"text-white text-3xl w=full flex justify-center"}>
-            Ingresar con correo electronico
-          </h1>
-          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
-          <label className={"flex justify-center"}>
-            <h1 className={"text-2xl text-white"}>Correo: </h1>
-            <input
-              id="email"
-              type={"email"}
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </label>
-          <label className={"flex justify-center"}>
-            <h1 className={"text-2xl text-white"}>Contraseña: </h1>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>
-          <p style={{ color: "red" }}> {message}</p>
-          <button
-            onClick={(e) => signInUser(e)}
-            className={"text-white bg-blue-700 w-24 mx-auto py-3 rounded-2xl"}
-          >
-            Ingresar
-          </button>
-          <button
-            onClick={(e) => signupUser(e)}
-            className={"text-white bg-blue-700 w-24 mx-auto py-3 rounded-2xl"}
-          >
-            Registrarse
-          </button>
-        </form>
       </div>
     </div>
   );
