@@ -3,15 +3,16 @@ import { Router, useRouter } from "next/router";
 import Loading from "../components/Loading";
 import NavbarAdmin from "../components/navbar"
 import SidebarUsers from "../components/sidebarUsers";
+import {useUser} from "@auth0/nextjs-auth0/client";
 
 
 export default function Home({users}) {
     const router = useRouter();
-    const { data: session, status } = useSession();
-    if (status === "loading") {
+    const { user,error,isLoading } = useUser();
+    if (isLoading) {
         return <Loading/>;
     }
-    if(session?.user.name){
+    if(user){
         console.log('ingresaste con google')
         return (
             <div className=" h-full">

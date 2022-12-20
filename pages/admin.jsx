@@ -1,16 +1,17 @@
 import { useSession, signOut } from "next-auth/react";
 import { Router, useRouter } from "next/router";
 import NavbarAdmin from './components/navbar'
+import {useUser} from "@auth0/nextjs-auth0/client";
 
 export default function Admin({ books }) {
 
   const router = useRouter();
-  const { data: session, status } = useSession();
-  if (status === "loading") {
+  const { user,status,isLoading } = useUser();
+  if (isLoading) {
     return <p>Loading....</p>;
 
   }
-  if (session?.user?.email) {
+  if (user) {
 
 
     return (
@@ -29,7 +30,8 @@ export default function Admin({ books }) {
       </div>
     );
   } else {
-    router.push("/signin");
+    router.push('/signin')
+
   }
 }
 export const getServerSideProps = async (ctx) => {

@@ -3,10 +3,11 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import NavbarAdmin from "../components/navbar";
 import Loading from "../components/Loading";
+import {useUser} from "@auth0/nextjs-auth0/client";
 
 export default function BookFormPage() {
   const router = useRouter();
-  const { data: session, status } = useSession();
+  const {user,error,isLoading } = useUser();
   const [newBook, setNewBook] = useState({
     title: "",
     autor: "",
@@ -63,10 +64,10 @@ export default function BookFormPage() {
     setNewBook({ ...newBook, [e.target.name]: e.target.value });
   console.log(newBook)
 
-  if (status === "loading") {
+  if (isLoading) {
     return <Loading></Loading>;
   }
-  if (1+1==2) {
+  if (user) {
     return (
       <div className="bg-gray-20 h-screen">
         <NavbarAdmin></NavbarAdmin>

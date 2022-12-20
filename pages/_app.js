@@ -1,16 +1,6 @@
-import { SessionProvider } from "next-auth/react";
-import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
-import "../styles/globals.css";
+import {UserProvider} from "@auth0/nextjs-auth0/client";
+import '../styles/globals.css'
 
-
-export default function App({
-  Component,
-  pageProps: { session, ...pageProps },
-}) {
-  return (<SessionProvider session={session}>
-        <Component {...pageProps} />
-
-      </SessionProvider>
-
-  );
+export default function App({ Component, pageProps }) {
+    return <UserProvider><Component {...pageProps} /></UserProvider>
 }

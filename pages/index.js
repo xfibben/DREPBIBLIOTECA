@@ -4,16 +4,17 @@ import Loading from "./components/Loading";
 import NavbarUser from "./components/navbarUser"
 import Sidebar from "./components/sidebar";
 import Slider from "./components/slidebar";
+import {useUser} from "@auth0/nextjs-auth0/client";
 
 
 
 export default function Home({books}) {
   const router = useRouter();
-  const { data: session, status } = useSession();
-  if (status === "loading") {
+  const { user,error,isLoading } = useUser();
+  if (isLoading ) {
     return <Loading/>;
   }
-  if(session?.user.name){
+  if(user){
       console.log('ingresaste con google')
     return (
         <div className=" h-full">

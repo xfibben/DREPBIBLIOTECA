@@ -1,8 +1,9 @@
-import {signOut,useSession} from "next-auth/react";
+
 import {useRouter} from "next/router";
+import {useUser} from "@auth0/nextjs-auth0/client";
 
 export default function NavbarUser(){
-    const { data: session, status } = useSession();
+    const { user,status,isLoading } = useUser();
     const router =useRouter();
     return(
         <div name="navbar" className="bg-gray-900 py-3 flex justify-between rounded-xl">
@@ -14,16 +15,16 @@ export default function NavbarUser(){
             </div>
             <div name="foto usuario" className="w-80 mx-10 flex justify-evenly">
 
-                <button
-                    onClick={() => signOut()}
+                <a href="api/auth/logout"
+
                     className="bg-blue-500 my-4 mx-2 px-1 rounded-xl hover:bg-blue-700 hover:text-white"
                 >
                     Cerrar sesion
-                </button>
+                </a>
                 <h1 className="grid content-center text-white">
-                    {session?.user?.name}
+                    {user.name}
                 </h1>
-                <img src={session?.user?.image} className="w-24"></img>
+                <img src={user.image} className="w-24"></img>
             </div>
         </div>
     )

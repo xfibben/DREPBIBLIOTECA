@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import Loading from "../../components/Loading";
 import NavbarUser from "../../components/navbarUser";
 import Sidebar from "../../components/sidebar";
+import {useUser} from "@auth0/nextjs-auth0/client";
 
 export default function Index() {
-  const { data: session, status } = useSession();
+  const { user,isLoading } = useUser();
   const [book, setBook] = useState({
     title: "",
     autor: "",
@@ -29,10 +30,10 @@ export default function Index() {
     console.log(query.id);
   }, []);
   console.log(book)
-  if (status == "loading") {
+  if (isLoading) {
     return <Loading />;
   }
-  if (session?.user.name) {
+  if (user) {
     return (
       <div className={"h-full"}>
         <NavbarUser></NavbarUser>
