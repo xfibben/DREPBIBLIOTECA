@@ -13,8 +13,10 @@ export default async (req, res) => {
 
         if (!book) {
           return res.status(404).json({ message: "libro no encontrado" });
+        }else{
+          return res.status(200).json(book);
         }
-        return res.status(200).json(book);
+
       } catch (error) {
         return res.status(500).json({ message: "error.message" });
       }
