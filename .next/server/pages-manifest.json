@@ -2,9 +2,8 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/auth/[...auth0]": "pages/api/auth/[...auth0].js",
   "/api/books": "pages/api/books.js",
-  "/libros/[id]": "pages/libros/[id].js",
   "/": "pages/index.js",
-  "/api/books/[id]": "pages/api/books/[id].js"
+  "/signin": "pages/signin.js",
+  "/api/auth/[...auth0]": "pages/api/auth/[...auth0].js"
 }
