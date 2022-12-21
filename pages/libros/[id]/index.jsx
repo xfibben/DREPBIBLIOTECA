@@ -40,11 +40,13 @@ export default function Index() {
         <div className={"w-full grid md:flex mt-5"}>
           <Sidebar></Sidebar>
           <div className={'bg-gray-100 rounded-2xl w-full  shadow-2xl'}>
+            <div style={{ backgroundImage: `url(${book.image})`}} className={'m-5  h-80  w-full  bg-fixed bg-cover  '}></div>
             <div className={'w-full '}>
-              <img src={book.image} className={'m-5  h-80 w-full object-cover '}/>
-              <h1 className={'text-8xl font-bold text-blue-500  m-10 -mt-72'}> {book.title} </h1>
+
+               <h1 className={'text-8xl font-bold text-blue-500  m-10 '}> {book.title} </h1>
               <h1 className={'text-3xl mx-24 font-bold'}> Autor: {book.autor}</h1>
               <h1 className={'text-2xl mx-24  font-normal my-5'}> Descripcion : {book.descripcion}</h1>
+              <button className={'m-3 w-44 h-20 text-2xl mx-24 bg-blue-500 rounded-2xl hover:bg-green-500 hover:w-48 '}>Descargar Libro</button>
             </div>
 
           </div>

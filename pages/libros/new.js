@@ -33,7 +33,7 @@ export default function BookFormPage() {
     console.log("libro agregado paaa");
      createBook();
 
-     router.push('/')
+     router.push('/admin')
 
   };
   const createBook = async () => {
@@ -50,13 +50,13 @@ export default function BookFormPage() {
   const validate = () => {
     const errors = {};
     if (!newBook.title) {
-      errors.title = "se requiere un titulo pa";
+      errors.title = "se requiere un titulo ";
     }
     if (!newBook.autor) {
-      errors.title = "se requiere un autor pa";
+      errors.title = "se requiere un autor ";
     }
     if (!newBook.image) {
-      errors.title = "metele una imagen pa";
+      errors.title = "metele una imagen ";
     }
     return errors;
   };
@@ -113,7 +113,7 @@ export default function BookFormPage() {
                   <div className={'bg-gray-600 h-1'}></div>
                 </label>
                 <label className={'w-full my-3'}>
-                  <select name={'categoria'} placeholder={'Categoria'} className={'w-full h-10'} defaultValue={' ola'} onChange={handleChange}>
+                  <select name={'categoria'} placeholder={'Categoria'} className={'w-full h-10'}  onChange={handleChange}>
                     <option value={'medicina'}>Medicina</option>
                     <option value={'matematica'}>Matematica</option>
                     <option value={'historia'}> Historia</option>

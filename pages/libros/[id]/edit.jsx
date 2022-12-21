@@ -60,7 +60,7 @@ export default function BookFormPage() {
 
     const updateBook=async()=>{
       try{
-          await fetch("http://localhost:8080/api/books"+query.id,{
+          await fetch("http://localhost:8080/api/books/"+query.id,{
               method:"PUT",
               headers:{
                   "Content-Type":"application/json",
