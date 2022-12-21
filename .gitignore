@@ -128,7 +128,7 @@ dist
 .fusebox/
 # Optional REPL history
 .node_repl_history
-.next
+.next/
 
 # DynamoDB Local files
 .dynamodb/
