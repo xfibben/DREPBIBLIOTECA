@@ -71,6 +71,22 @@ export default function BookFormPage() {
           console.error(error);
       }
     };
+    const deleteBook=async()=>{
+      const {id}=query;
+      try{
+          await fetch("http://localhost:8080/api/books/"+query.id,{
+              method:"DELETE",
+
+          })
+      }catch(error){
+          console.error(error)
+      }
+    };
+    const handleDelete=()=>{
+        deleteBook();
+        close();
+        router.push("/admin")
+    }
     const validate = () => {
         const errors = {};
         if (!newBook.title) {
@@ -155,7 +171,9 @@ export default function BookFormPage() {
 
 
 
+
                             </form>
+                            <button onClick={handleDelete} className={'bg-red-800 h-10 w-20 mx-auto rounded-2xl text-white '}>Eliminar</button>
                         </div>
                     </div>
 

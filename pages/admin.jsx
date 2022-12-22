@@ -2,6 +2,7 @@ import {  useRouter } from "next/router";
 import NavbarAdmin from './components/navbar'
 import {useUser} from "@auth0/nextjs-auth0/client";
 import Sidebar from "./components/sidebar";
+import Loading from "./components/Loading";
 
 export default function Admin({ books }) {
 
@@ -9,14 +10,14 @@ export default function Admin({ books }) {
   const { user,status,isLoading } = useUser();
 
   if (isLoading) {
-    return <p>Loading....</p>;
+    return <Loading/>;
 
   }
   if (user) {
 
 
     return (
-      <div className="bg-gray-700 h-full ">
+      <div className="bg-gray-700  ">
       <NavbarAdmin/>
         <div className={'lg:flex my-10'}>
           <Sidebar/>
