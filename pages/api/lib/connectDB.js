@@ -7,7 +7,7 @@ const connectDB=()=>{
     }
     mongoose.connect(process.env.MONGODB_URI,{},err=>{
         if(err) throw err;
-        console.log("COneccion satisfactoria")
+        console.log("Coneccion satisfactoria")
     })
 }
 export default connectDB;
