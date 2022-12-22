@@ -12,7 +12,7 @@ export default function Admin({ books }) {
     return <p>Loading....</p>;
 
   }
-  if (user.nickname=="xfibben") {
+  if (user) {
 
 
     return (
