@@ -1,7 +1,7 @@
 import React from 'react';
 import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
-
+import Image from 'next/image'
 const fadeImages = [
     {
         url: 'https://raw.githubusercontent.com/xfibben/DREPBIBLIOTECA/main/public/tode_2.png',
@@ -21,7 +21,7 @@ export default function Slider() {
                 {fadeImages.map((fadeImage, index) => (
                     <div className="each-fade" key={index}>
                         <div className="image-container">
-                            <img className={'w-full'} src={fadeImage.url} />
+                            <img className={'w-full'} src={fadeImage.url}></img>
                         </div>
 
                     </div>
