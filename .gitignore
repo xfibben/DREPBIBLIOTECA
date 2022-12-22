@@ -20,7 +20,7 @@ Wiki
 Security
 Insights
 Settings
-LOGINDISCORD/.gitignore
+
 @xfibben
 xfibben Initial commit
 Latest commit ed2aab4 on Nov 10
@@ -107,6 +107,9 @@ typings/
 #..
 # Next.js build output
 .next
+.next/cache/
+.cache
+.next/cache
 
 # Nuxt.js build / generate output
 .nuxt
@@ -145,7 +148,7 @@ Status
 Docs
 Contact GitHub
 Pricing
-API
+
 Training
 Blog
 About
