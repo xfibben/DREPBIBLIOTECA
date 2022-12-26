@@ -2,8 +2,9 @@ SISTEMA DE BIBLIOTCA CON LOGIN (servicio GOOGLE) UTILIZANDO COREO ELECTRONICO
 
 GUIA INSTALACION: 
 
-- en terminal correr "npm i".
--el programa se abrira en el puerto 8080.
+- en terminal correr "npm i" para actulizar dependencias.
+-correr "npx nodemon server.js" para inicializar el backend.
+-correr "npm run dev" para inicializar frontend.
 - Loguearse para poder acceder al aplicativo
 //
 INDICACIONES ADMINISTRADOR.
