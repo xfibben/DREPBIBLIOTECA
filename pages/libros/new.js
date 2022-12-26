@@ -8,6 +8,18 @@ import {useUser} from "@auth0/nextjs-auth0/client";
 export default function BookFormPage() {
   const router = useRouter();
   const {user,error,isLoading } = useUser();
+  const [image,setImage]=useState(null)
+  const [ImageInput,setImageInput]=useState(null)
+  const handleImage=(e)=>{
+    const file=e.target.files[0];
+    setImageInput(file);
+    const fileReader=new FileReader();
+    fileReader.onload=function(e){
+      setImage(e.target.result);
+      console.log(e.target.result)
+    }
+    fileReader.readAsDataURL(file);
+  }
   const [newBook, setNewBook] = useState({
     title: "",
     autor: "",
@@ -28,9 +40,9 @@ export default function BookFormPage() {
     let errors = validate();
     if (Object.keys(errors).length) {
       return setErrors(errors);
-      console.log('hay error causia')
+      console.log('hay error ')
     }
-    console.log("libro agregado paaa");
+    console.log("libro agregado ");
      createBook();
 
      router.push('/admin')
@@ -38,7 +50,7 @@ export default function BookFormPage() {
   };
   const createBook = async () => {
     try {
-      await fetch("http://localhost:8080/api/books", {
+      await fetch("http://localhost:3000/upload", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -91,7 +103,7 @@ export default function BookFormPage() {
             </div>
             <div name={'drecha'} className={'w-full grid md:ml-10 content-start'}>
               <h1 className={'my-5 text-2xl'}>Ingrese los datos del libro:  < /h1>
-              <form className={' w-full grid'} onSubmit={handleSubmit}>
+              <form className={' w-full grid'}   action="http://localhost:3000/upload" method="POST" encType="multipart/form-data">
                 <label className={'w-full my-3'}>
                   <input name={'title'} placeholder={'Titulo'} className={'w-full h-10'} onChange={handleChange}></input>
                   <div className={'bg-gray-600 h-1'}></div>
@@ -100,8 +112,9 @@ export default function BookFormPage() {
                   <input name={'autor'} placeholder={'Autor'} className={'w-full h-10'} onChange={handleChange}></input>
                   <div className={'bg-gray-600 h-1'}></div>
                 </label>
-                <label className={'w-full my-3'}>
-                  <input name={'image'} placeholder={'Imagen'} className={'w-full h-10'} onChange={handleChange}></input>
+                <label className={'w-full my-3 flex'}>
+                  <input type={'file'} name={'image'} placeholder={'Imagen'} className={'w-full h-10'} onChange={handleImage}></input>
+                  <img src={image} className={'w-10'}/>
                   <div className={'bg-gray-600 h-1'}></div>
                 </label>
                 <label className={'w-full my-3'}>

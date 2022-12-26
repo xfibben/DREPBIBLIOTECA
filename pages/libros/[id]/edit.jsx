@@ -141,7 +141,7 @@ export default function BookFormPage() {
                                     <div className={'bg-gray-600 h-1'}></div>
                                 </label>
                                 <label className={'w-full my-3'}>
-                                    <input name={'image'} value={newBook.image} placeholder={'Imagen'} className={'w-full h-10'} onChange={handleChange}></input>
+                                    <input name={'image'} type="file"  placeholder={'Imagen'} className={'w-full h-10'} onChange={handleChange}></input>
                                     <div className={'bg-gray-600 h-1'}></div>
                                 </label>
                                 <label className={'w-full my-3'}>
@@ -149,7 +149,7 @@ export default function BookFormPage() {
                                     <div className={'bg-gray-600 h-1'}></div>
                                 </label>
                                 <label className={'w-full my-3'}>
-                                    <input name={'fecha'} type={'date'} value={newBook.fecha} placeholder={'Fecha'} className={'w-full h-10'} onChange={handleChange}></input>
+                                    <input name={'fecha'} type={'date'} value={newBook.fecha}  className={'w-full h-10'} onChange={handleChange}></input>
                                     <div className={'bg-gray-600 h-1'}></div>
                                 </label>
                                 <label className={'w-full my-3'}>
