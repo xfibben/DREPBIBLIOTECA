@@ -3,7 +3,7 @@ const router=Router();
 
 
 
-const Book = require("../../backend/models/image")
+const Book = require("../models/image")
 
 router.get('/',(req,res)=>{
   res.send('Index Page')

@@ -4,7 +4,7 @@ const path = require("path");
 const morgan = require("morgan");
 const multer = require("multer");
 const { v4: uuidv4 } = require('uuid');
-const db=require('../pinterest/pinterest/backend/database')
+const db=require('./backend/database')
 //setings
 app.set("port", process.env.PORT || 3000);
 //midleware
@@ -24,7 +24,7 @@ app.use(
 );
 //Routes
 
-app.use(require("../pinterest/pinterest/backend/routes"));
+app.use(require("./backend/routes/index"));
 
 //static files\
 app.use(express.static(path.join(__dirname,'backend/public')))
