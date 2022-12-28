@@ -83,8 +83,9 @@ export default function BookFormPage() {
       }
     };
     const handleDelete=()=>{
-        deleteBook();
+        deleteBook().then(alert("Eliminado correctamente"));
         close();
+
         router.push("/admin")
     }
     const validate = () => {
@@ -140,10 +141,7 @@ export default function BookFormPage() {
                                     <input name={'autor'} value={newBook.autor} placeholder={'Autor'} className={'w-full h-10'} onChange={handleChange}></input>
                                     <div className={'bg-gray-600 h-1'}></div>
                                 </label>
-                                <label className={'w-full my-3'}>
-                                    <input name={'image'} type="file"  placeholder={'Imagen'} className={'w-full h-10'} onChange={handleChange}></input>
-                                    <div className={'bg-gray-600 h-1'}></div>
-                                </label>
+
                                 <label className={'w-full my-3'}>
                                     <input name={'descripcion'} value={newBook.descripcion} value={newBook.descripcion} placeholder={'Descripcion'} className={'w-full h-10'} onChange={handleChange}></input>
                                     <div className={'bg-gray-600 h-1'}></div>
@@ -167,7 +165,7 @@ export default function BookFormPage() {
                                     <div className={'bg-gray-600 h-1'}></div>
                                 </label>
 
-                                <button type={'submit'} className={'bg-blue-800 h-10 w-20 mx-auto rounded-2xl text-white '}>Crear</button>
+                                <button type={'submit'} className={'bg-blue-800 h-10 w-20 mx-auto rounded-2xl text-white '}>Editar</button>
 
 
 
