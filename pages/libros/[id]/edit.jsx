@@ -12,7 +12,7 @@ export default function BookFormPage() {
     const [newBook, setNewBook] = useState({
         title: "",
         autor: "",
-        image: "",
+        path: "",
         descripcion:"",
         fecha:"",
         calificacion:"",
@@ -24,13 +24,25 @@ export default function BookFormPage() {
         autor: "",
         image: "",
     });
+    const [image,setImage]=useState(null)
+    const [ImageInput,setImageInput]=useState(null)
+    const handleImage=(e)=>{
+        const file=e.target.files[0];
+        setImageInput(file);
+        const fileReader=new FileReader();
+        fileReader.onload=function(e){
+            setImage(e.target.result);
+            console.log(e.target.result)
+        }
+        fileReader.readAsDataURL(file);
+    }
     const getBook=async()=>{
         const res=await fetch("http://localhost:8080/api/books/" + query.id);
         const data=await res.json();
         setNewBook({
             title:data.title,
             autor:data.autor,
-            image:data.image,
+            path:data.path,
             descripcion:data.descripcion,
             fecha:data.fecha,
             categoria:data.categoria,
@@ -60,7 +72,7 @@ export default function BookFormPage() {
 
     const updateBook=async()=>{
       try{
-          await fetch("http://localhost:8080/api/books/"+query.id,{
+          await fetch("http://localhost:3000/upload/"+query.id,{
               method:"PUT",
               headers:{
                   "Content-Type":"application/json",
@@ -74,7 +86,7 @@ export default function BookFormPage() {
     const deleteBook=async()=>{
       const {id}=query;
       try{
-          await fetch("http://localhost:8080/api/books/"+query.id,{
+          await fetch("http://localhost:3000/api/books/"+query.id,{
               method:"DELETE",
 
           })
@@ -132,13 +144,18 @@ export default function BookFormPage() {
                         </div>
                         <div name={'drecha'} className={'w-full grid md:ml-10 content-start'}>
                             <h1 className={'my-5 text-2xl'}>Ingrese los datos del libro:  < /h1>
-                            <form className={' w-full grid'} onSubmit={handleSubmit}>
+                            <form className={' w-full grid'} method={'PUT'} action={`http://localhost:3000/upload/${query.id}`}>
                                 <label className={'w-full my-3'}>
                                     <input name={'title'} value={newBook.title} className={'w-full h-10'} onChange={handleChange}></input>
                                     <div className={'bg-gray-600 h-1'}></div>
                                 </label>
                                 <label className={'w-full my-3'}>
                                     <input name={'autor'} value={newBook.autor} placeholder={'Autor'} className={'w-full h-10'} onChange={handleChange}></input>
+                                    <div className={'bg-gray-600 h-1'}></div>
+                                </label>
+                                <label className={'w-full my-3 flex'}>
+                                    <input type={'file'} name={'image'} placeholder={'Imagen'} className={'w-full h-10'} onChange={handleImage}></input>
+ook                                    <img src={`http://localhost:3000/${newBook.path}`} className={'w-10'}/>
                                     <div className={'bg-gray-600 h-1'}></div>
                                 </label>
 
@@ -165,7 +182,7 @@ export default function BookFormPage() {
                                     <div className={'bg-gray-600 h-1'}></div>
                                 </label>
 
-                                <button type={'submit'} className={'bg-blue-800 h-10 w-20 mx-auto rounded-2xl text-white '}>Editar</button>
+                                <button type={'submit'}  className={'bg-blue-800 h-10 w-20 mx-auto rounded-2xl text-white '}>Editar</button>
 
 
 

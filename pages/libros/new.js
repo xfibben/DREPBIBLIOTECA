@@ -117,6 +117,11 @@ export default function BookFormPage() {
                   <img src={image} className={'w-10'}/>
                   <div className={'bg-gray-600 h-1'}></div>
                 </label>
+                <label className={'w-full my-3 flex'}>
+                  <input type={'file'} name={'pdf'}  className={'w-full h-10'} ></input>
+
+                  <div className={'bg-gray-600 h-1'}></div>
+                </label>
                 <label className={'w-full my-3'}>
                   <input name={'descripcion'} placeholder={'Descripcion'} className={'w-full h-10'} onChange={handleChange}></input>
                   <div className={'bg-gray-600 h-1'}></div>
