@@ -86,7 +86,7 @@ export default function BookFormPage() {
     const deleteBook=async()=>{
       const {id}=query;
       try{
-          await fetch("http://localhost:3000/api/books/"+query.id,{
+          await fetch("http://localhost:8080/api/books/"+query.id,{
               method:"DELETE",
 
           })

@@ -4,6 +4,7 @@ const router = Router();
 const Book = require("../models/image");
 const {id_ID} = require("timeago.js/lib/lang");
 
+
 router.get("/", (req, res) => {
   res.send("Index Page");
 });
@@ -49,8 +50,13 @@ router.put("/upload/:id", async (req, res) => {
     return res.status(200).json(newBook);
 });
 
-router.delete("/image/:id/delete", (req, res) => {
-  res.send("Image deleted");
+router.delete("/upload/:id/", async (req, res) => {
+
+    const { id } = req.params;
+
+    const newBook = await Book.findByIdAndDelete(id);
+
+    res.redirect("http://localhost:8080/admin");
 });
 
 
