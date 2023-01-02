@@ -27,7 +27,7 @@ export default function Home({books}) {
                 <div className={' rounded-2xl w-full lg:w-3/4  grid grid-cols-2 gap-2 lg:grid-cols-4 lg:gap-5  mr-1 mx-2 shadow-2xl'}>
                     {books.map(book=>(
                         <div className={'my-4 mx-3 h-72 w-52  lg:w-52 rounded-2xl  px-2 shadow-2xl'} key={book._id} onClick={()=>router.push(`/libros/${book._id}`)}>
-                            <img className='w-full  h-40 mt-2' src={`http://localhost:3000/${book.path}` }/>
+                            <img className='w-full  h-40 mt-2' src={book.image}></img>
                             <h1 className={'text-xl grid content-center text-end h-20 flex justify-center'}>{book.title}</h1>
 
                         </div>
@@ -44,7 +44,7 @@ export default function Home({books}) {
 
 }
 export const getServerSideProps = async (ctx) => {
-    const res = await fetch("http://localhost:3000/upload");
+    const res = await fetch("http://localhost:8080/api/books");
     const books = await res.json();
     console.log('se tienen todos los libros');
     return {

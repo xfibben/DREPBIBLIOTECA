@@ -23,16 +23,11 @@ export default function Index() {
       autor: data.autor,
       image: data.image,
       descripcion:data.descripcion,
-      path:data.path,
     });
   };
-  useEffect( () => {
-    async function obtenerLibro(){
-      await getBook();
-      await console.log(query.id);
-    }
-    obtenerLibro();
-
+  useEffect(() => {
+    if (query.id) getBook();
+    console.log(query.id);
   }, []);
   console.log(book)
   if (isLoading) {
@@ -45,7 +40,7 @@ export default function Index() {
         <div className={"w-full grid md:flex mt-5"}>
           <Sidebar></Sidebar>
           <div className={'bg-gray-100 rounded-2xl w-full  shadow-2xl'}>
-            <div style={{ backgroundImage: `url(http://localhost:3000/${book.path})`}} className={'m-5  h-80  w-full  bg-fixed bg-cover  '}></div>
+            <div style={{ backgroundImage: `url(${book.image})`}} className={'m-5  h-80  w-full  bg-fixed bg-cover  '}></div>
             <div className={'w-full '}>
 
                <h1 className={'text-8xl font-bold text-blue-500  m-10 '}> {book.title} </h1>
