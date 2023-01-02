@@ -24,7 +24,9 @@ export default function Index() {
       image: data.image,
       descripcion:data.descripcion,
       path:data.path,
+      pdfpath:data.pdfpath,
     });
+    await console.log(book)
   };
   useEffect( () => {
     async function obtenerLibro(){
@@ -51,7 +53,7 @@ export default function Index() {
                <h1 className={'text-8xl font-bold text-blue-500  m-10 '}> {book.title} </h1>
               <h1 className={'text-3xl mx-24 font-bold'}> Autor: {book.autor}</h1>
               <h1 className={'text-2xl mx-24  font-normal my-5'}> Descripcion : {book.descripcion}</h1>
-              <button className={'m-3 w-44 h-20 text-2xl mx-24 bg-blue-500 rounded-2xl hover:bg-green-500 hover:w-48 '}>Descargar Libro</button>
+              <a href={`http://localhost:3000${book.pdfpath}`} target="_blank" className={'m-3 w-44 h-40 text-2xl mx-24 bg-blue-500 rounded-2xl hover:bg-green-500 hover:w-48 '}>Descargar Libro</a>
             </div>
 
           </div>
