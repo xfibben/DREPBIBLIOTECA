@@ -1,3 +1,4 @@
+
 import {  useRouter } from "next/router";
 import NavbarAdmin from './components/navbar'
 import {useUser} from "@auth0/nextjs-auth0/client";
@@ -27,7 +28,7 @@ export default function Admin({ books }) {
                 <div className={'m-5 h-10   w-full'} key={book._id} >
                   <div className={'w-full flex'}>
                     <h1 className={'text-2xl text-white flex justify-center'}>{book.title}</h1>
-                    <img className='w-10 h-10' src={`http://localhost:3000/${book.path}`} />
+                    <img className='w-10 h-10' src={book.image}/>
                     <button className={'rounded-2xl mx-auto  mr-10 w-20 bg-green-500 '} onClick={()=>router.push(`libros/${book._id}/edit`)}>Editar</button>
                   </div>
                   <div className={'h-1 bg-white w-full mx-2'}></div>

@@ -2,19 +2,14 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const bookSchema = new mongoose.Schema({
-  title: {type: String },
-  autor: {type: String },
-  descripcion:{type: String },
-  fecha:{type:Date,default:Date.now()},
+  title: {type: String, required: [true, "se requiere un titulo"] },
+  autor: {type:String,required:[true,'se require un autor']},
+  image: {type:String,required:[true,'se require una imagen del libros']},
+  descripcion:{type:String,required:[true,'se require una descripcion']},
+  fecha:{type:Date},
   calificacion:{type:String,min:0,max:5},
-  categoria:{type: String },
-  hojas:{type: Number },
-  filename:{type:String},
-  path:{type:String},
-  originalName:{type:String},
-  mimetype:{type:String},
-  size:{type:Number},
-  created_at:{type:Date,default:Date.now()}
+  categoria:{type:String,required:[true,'ingrese una categoria']},
+  hojas:{type:Number,required:[true,'ingrese cantidad de hojas']},
 
 
 
