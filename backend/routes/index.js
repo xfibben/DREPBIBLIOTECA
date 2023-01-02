@@ -24,10 +24,11 @@ router.post("/upload", async (req, res) => {
   image.calificacion = req.body.calificacion;
   image.categoria = req.body.categoria;
   image.hojas = req.body.hojas;
-  image.filename = req.file.filename;
-  image.path = "/img/uploads/" + req.file.filename;
-  image.mimetype = req.file.mimetype;
-  image.size = req.file.size;
+  image.filename = req.files.image.filename;
+  image.path = "/img/uploads/" + req.files.image[0].filename;
+  image.mimetype = req.files.image.mimetype;
+  image.size = req.files.image.size;
+  image.pdfpath="/pdf/uploads/" + req.files.pdf[0].filename
   await image.save();
   console.log(image);
     res.redirect("http://localhost:8080/admin");
@@ -55,8 +56,8 @@ router.delete("/upload/:id/", async (req, res) => {
     const { id } = req.params;
 
     const newBook = await Book.findByIdAndDelete(id);
+    res.send('eliminado')
 
-    res.redirect("http://localhost:8080/admin");
 });
 
 

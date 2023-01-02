@@ -14,7 +14,8 @@ const bookSchema = new mongoose.Schema({
   originalName:{type:String},
   mimetype:{type:String},
   size:{type:Number},
-  created_at:{type:Date,default:Date.now()}
+  created_at:{type:Date,default:Date.now()},
+  pdfpath:{type:String}
 
 
 

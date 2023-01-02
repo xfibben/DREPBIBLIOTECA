@@ -24,7 +24,7 @@ export default async (req, res) => {
       try {
         const book = await Books.findByIdAndUpdate(id, req.body, { new: true });
         if (!book) {
-          return res.status(404).json({ message: "No hay libro pa" });
+          return res.status(404).json({ message: "No hay libro " });
         } else {
           return res.status(200).json(book);
         }
