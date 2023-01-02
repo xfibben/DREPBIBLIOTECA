@@ -4,6 +4,7 @@ import Loading from "./components/Loading";
 import NavbarUser from "./components/navbarUser"
 import Sidebar from "./components/sidebar";
 import Slider from "./components/slidebar";
+import Search from "./components/buscador";
 import {useUser} from "@auth0/nextjs-auth0/client";
 
 
@@ -20,6 +21,7 @@ export default function Home({books}) {
         <div className=" h-full">
 
           <NavbarUser></NavbarUser>
+          <Search></Search>
             <Slider/>
             <div className={' grid lg:flex mt-5'}>
                 <Sidebar></Sidebar>
