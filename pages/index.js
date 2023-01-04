@@ -6,7 +6,7 @@ import Sidebar from "./components/sidebar";
 import Slider from "./components/slidebar";
 
 import { useUser } from "@auth0/nextjs-auth0/client";
-import Buscador from "./search";
+//
 import { useEffect, useState } from "react";
 import Empty from "./components/empty";
 
