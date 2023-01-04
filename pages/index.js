@@ -4,7 +4,7 @@ import Loading from "./components/Loading";
 import NavbarUser from "./components/navbarUser";
 import Sidebar from "./components/sidebar";
 import Slider from "./components/slidebar";
-import Search from "./components/search";
+
 import { useUser } from "@auth0/nextjs-auth0/client";
 import Buscador from "./search";
 import { useEffect, useState } from "react";
