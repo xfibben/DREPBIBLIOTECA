@@ -8,6 +8,7 @@ import Search from "./components/search";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import Buscador from "./search";
 import { useEffect, useState } from "react";
+import Empty from "./components/empty";
 
 export default function Home() {
   const [books, setBooks] = useState([]);
@@ -17,9 +18,15 @@ export default function Home() {
     setBooks(data);
   };
   const router = useRouter();
+  const [tipo,setTipo]=useState('title');
+
   const { user, error, isLoading } = useUser();
   const [search, setSearch] = useState("");
-
+  const changetipe=(e)=>{
+    e.target.value;
+    setTipo(e.target.value)
+    console.log(tipo)
+  }
   const searcher = (e) => {
     setSearch(e.target.value);
     console.log(e.target.value);
@@ -35,6 +42,9 @@ export default function Home() {
   if (isLoading) {
     return <Loading />;
   }
+  if(results==[]){
+    return <Empty></Empty>
+  }
   if (user) {
     console.log("ingresaste con google");
     return (
@@ -42,13 +52,17 @@ export default function Home() {
         <NavbarUser></NavbarUser>
 
         <Slider />
-        <input
-          className={"h-20 text-5xl w-full text-center"}
-          type={"text"}
-          placeholder={"Buscar Libro"}
-          value={search}
-          onChange={searcher}
-        />
+
+
+          <input
+              className={"h-20 text-5xl w-full text-center"}
+              type={"text"}
+              placeholder={"Buscar Libro"}
+              value={search}
+              onChange={searcher}
+          />
+
+
         <div className={" grid lg:flex mt-5"}>
           <Sidebar></Sidebar>
           <div
