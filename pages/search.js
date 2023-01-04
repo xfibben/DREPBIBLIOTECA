@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -70,8 +70,9 @@ peticionGet();
 
          <tbody>
            {books.map((book)=>(
-             <tr key={book.id}>
-               <td>{book.title}</td>
+             <tr key={book._id}>
+               <td><a href={`http://localhost:8080/libros/${book.id}`} onClick={console.log(book._id)}>{book.title} </a>
+                 </td>
                <td>{book.autor}</td>
                <td>{book.descripcion}</td>
                <td>{book.categoria}</td>
